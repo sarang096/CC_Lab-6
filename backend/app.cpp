@@ -53,8 +53,8 @@ int main() {
             "\r\n" +
             body;
 
-        send(client_socket, response.c_str(), response.size(), 0);
-        close(client_socket);
+        send(client_fd, response.c_str(), response.size(), 0);
+        close(client_fd);
     }
     
     return 0;
