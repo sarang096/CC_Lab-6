@@ -43,7 +43,7 @@ int main() {
         if (client_fd < 0) continue;
         
         // Simple HTTP response
-        std::string body = "Served by backend: " + hostname + "\n";
+        std::string body = std::string("Served by backend: ") + std::string(hostname) + "\n";
 
         std::string response =
             "HTTP/1.1 200 OK\r\n"
@@ -53,8 +53,8 @@ int main() {
             "\r\n" +
             body;
 
-        send(client_fd, response.c_str(), response.size(), 0);
-        close(client_fd);
+        send(client_socket, response.c_str(), response.size(), 0);
+        close(client_socket);
     }
     
     return 0;
